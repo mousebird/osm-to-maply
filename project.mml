@@ -1,0 +1,375 @@
+{
+  "bounds": [
+    -180,
+    -85.05112877980659,
+    180,
+    85.05112877980659
+  ],
+  "center": [
+    0,
+    0,
+    2
+  ],
+  "format": "png",
+  "interactivity": false,
+  "minzoom": 0,
+  "maxzoom": 22,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "polygon",
+      "extent": [
+        -74.01847469099991,
+        -33.74228037499991,
+        -28.877064581999974,
+        5.267224833000043
+      ],
+      "id": "braziloutline",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/brazil_outline.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "braziloutline"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -76.82392367808417,
+        -33.82217063078258,
+        -34.79301819999999,
+        9.454968918666387
+      ],
+      "id": "brazilland2",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/brazil_land2.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "brazilland2"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -72.78267374620049,
+        -33.14605554922747,
+        -32.41482964291493,
+        4.997068424998671
+      ],
+      "id": "aeroway",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/aeroway.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "aeroway"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -73.99120667283628,
+        -33.86890548821901,
+        -28.63411624761587,
+        5.283457316811141
+      ],
+      "id": "landuse",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/landuse.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "landuse"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -73.99120667283628,
+        -33.86890548821901,
+        -28.63411624761587,
+        5.283457316811141
+      ],
+      "id": "landusehigh",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/landuse_high.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "landusehigh"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -73.99120667283628,
+        -33.86890548821901,
+        -28.63411624761587,
+        5.283457316811141
+      ],
+      "id": "landuselow",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/landuse_low.shp",
+        "id": "landuselow",
+        "project": "brazil-shape",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "landuselow"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -73.99120667283628,
+        -33.86890548821901,
+        -28.63411624761587,
+        5.283457316811141
+      ],
+      "id": "landusemed",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/landuse_med.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "landusemed"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -73.99094373595261,
+        -33.86890548821901,
+        -28.63411624761587,
+        5.283457316811141
+      ],
+      "id": "adminpoly",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/admin_poly.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "adminpoly"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -72.9387298858415,
+        -33.751395465564535,
+        -29.345609530917752,
+        4.524040356469565
+      ],
+      "id": "water",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/water.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "water"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -72.9387298858415,
+        -33.75135535650397,
+        -29.345619232722818,
+        4.523808775884653
+      ],
+      "id": "waterlow",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/water_low.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "waterlow"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -72.9387298858415,
+        -33.75135535650397,
+        -29.345619232722818,
+        4.523808775884653
+      ],
+      "id": "watermed",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/water_med.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "watermed"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -72.1301536934912,
+        -33.76739845421496,
+        -29.319929841048275,
+        5.19847003455842
+      ],
+      "id": "waterwayhigh",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/waterway_high.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "waterwayhigh"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -73.98306227697587,
+        -33.751066525899276,
+        -29.307388461366674,
+        5.9527567278676035
+      ],
+      "id": "waterwaylow",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/waterway_low.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "waterwaylow"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -72.77465475515373,
+        -33.74795042472641,
+        -29.316685036410504,
+        4.608629717032203
+      ],
+      "id": "buildings",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/buildings.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "buildings"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -74.50009105234892,
+        -35.164717386071075,
+        -28.63411624761587,
+        6.270877970323023
+      ],
+      "id": "adminline",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/admin_line.shp",
+        "id": "adminline",
+        "project": "brazil-shape",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "adminline"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -73.84076284776434,
+        -33.88110072393982,
+        -29.310066608723222,
+        5.774449377336014
+      ],
+      "id": "roadshigh",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/roads_high.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "roadshigh"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -68.93256342907804,
+        -33.88110072393982,
+        -34.79999353567003,
+        4.596762111391004
+      ],
+      "id": "roadslow",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/roads_low.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "roadslow"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -73.66895304281726,
+        -33.88110072393982,
+        -34.795575710934266,
+        5.774449377336014
+      ],
+      "id": "roadsmed",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/roads_med.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "roadsmed"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -73.73114592521966,
+        -33.76413470724887,
+        -29.307220745903134,
+        4.770073976381833
+      ],
+      "id": "place",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/sjg/iPhone/brazil/Savannah/brazil_data/place.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "place"
+    }
+  ],
+  "scale": 1,
+  "metatile": 2,
+  "name": "Brazil Shape",
+  "description": ""
+}
