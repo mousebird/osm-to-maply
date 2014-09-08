@@ -23,10 +23,10 @@ Several of the tiles are missing an attribute we need for sorting: area.
 
 Using QGIS modify the files landuse.shp natural.shap and buildings.shp
 
-  Toggle editing (so you can make changes)
-  Open Field Calculator
-  Create a new field called “area” as a decimal number
-  Put “$area * 100000000” in the Expression field
+    Toggle editing (so you can make changes)
+    Open Field Calculator
+    Create a new field called “area” as a decimal number
+    Put “$area * 100000000” in the Expression field
 
 Be sure to save each of those files.  I recommend loading them up again to make sure the changes too.
 
@@ -39,8 +39,7 @@ Create a new project in TileMill.
 
 Load each of those shape files in as individual layers.  Keep their names as TileMill makes them.
 
-Open style.mss in a text editor.  Copy the whole thing and paste it into the style.mm that TileMill made for you.
-  You’re replacing the style sheet here.
+Open style.mss in a text editor.  Copy the whole thing and paste it into the style.mm that TileMill made for you.  You’re replacing the style sheet here.
 
 Save the style and it should begin showing you data.
 
@@ -51,4 +50,5 @@ From TileMill you can export Mapnik XML.  Save this to mapnik_style.xml.
 To build the vector tiles you’ll need to compile carto_vector_dice from the WhirlyGlobe-Maply [distribution](https://github.com/mousebird/WhirlyGlobe).
 
 There are many options to carto_vector_dice, but this set should work reasonably well:
+
 carto_vector_dice -targetdir my_tiles -targetdb my_db.sqlite -config mapnik_style.xml -levels 6 16
