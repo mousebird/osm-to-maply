@@ -6,7 +6,9 @@ There are several online and offline vector tile formats that WhirlyGlobe-Maply 
 #### Pre-requisites
 
 [QGIS](http://www.qgis.org/en/site/): Used for editing shapefiles
+
 [GDAL](http://gdal.org/): ogr2ogr is used for linear simplification
+
 [TileMill](https://www.mapbox.com/tilemill/): Used to generate the Mapnik XML
 
 #### Source data
@@ -20,6 +22,7 @@ Download them and put them in directory called “shape files”
 Several of the tiles are missing an attribute we need for sorting: area.
 
 Using QGIS modify the files landuse.shp natural.shap and buildings.shp
+
   Toggle editing (so you can make changes)
   Open Field Calculator
   Create a new field called “area” as a decimal number
