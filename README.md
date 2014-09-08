@@ -3,19 +3,19 @@ osm-to-maply
 
 There are several online and offline vector tile formats that WhirlyGlobe-Maply supports.  Here’s how to create the Maply vector tile format from OpenStreetMap data.
 
-==Pre-requisites
+## Pre-requisites
 
 [QGIS](http://www.qgis.org/en/site/): Used for editing shapefiles
 [GDAL](http://gdal.org/): ogr2ogr is used for linear simplification
 [TileMill](https://www.mapbox.com/tilemill/): Used to generate the Mapnik XML
 
-==Source data
+## Source data
 
 Go get a set of OSM shape files.  We like the ones from [Geofabrik](http://download.geofabrik.de/).
 
 Download them and put them in directory called “shape files”
 
-==Preparing the source data
+## Preparing the source data
 
 Several of the tiles are missing an attribute we need for sorting: area.
 
@@ -30,7 +30,7 @@ Be sure to save each of those files.  I recommend loading them up again to make 
 Now run the “build_simple.sh” script on the command line.
   This will generate simplified versions of several of the shape files.  We’ll need those for later.
 
-==Styling the map
+## Styling the map
 
 Create a new project in TileMill.
 
@@ -41,7 +41,7 @@ Open style.mss in a text editor.  Copy the whole thing and paste it into the sty
 
 Save the style and it should begin showing you data.
 
-==Building the vector tiles
+##Building the vector tiles
 
 From TileMill you can export Mapnik XML.  Save this to mapnik_style.xml.
 
