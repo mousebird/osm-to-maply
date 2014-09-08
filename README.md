@@ -51,4 +51,4 @@ To build the vector tiles you’ll need to compile carto_vector_dice from the Wh
 
 There are many options to carto_vector_dice, but this set should work reasonably well:
 
-carto_vector_dice -targetdir my_tiles -targetdb my_db.sqlite -config mapnik_style.xml -levels 6 16
+    carto_vector_dice -targetdir my_tiles -targetdb my_db.sqlite -config mapnik_style.xml -levels 6 16
