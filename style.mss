@@ -3,7 +3,7 @@
 /* ****************************************************************** */
 
 Map {
-  background-color: #b8dee6;
+  background-color: @water;
 }
 
 /* ================================================================== */
@@ -88,6 +88,8 @@ Map {
 
 @aeroway:           #ddd;
 
+@text_halo:         1.0;
+
 /* ================================================================== */
 /* BOUNDARY COLORS
 /* ================================================================== */
@@ -131,11 +133,11 @@ Map {
 
 /* ****************************************************************** */
 
-#braziloutline [zoom < 9] {
-  polygon-fill: white
+#braziloutline [zoom < 13] {
+  polygon-fill: white;
 }
 
-#brazilland2 [zoom >= 9] {
+#brazilland2 [zoom >= 12] {
   polygon-fill: white
 }
 
@@ -151,257 +153,317 @@ Map {
 // LANDUSE & LANDCOVER
 // ==================================================================
 
-#landuselow
+#landusesimpl1
 {
-  [zoom>=6][zoom<8][AREA > 1000000000],
+  [zoom>=6][zoom<8][area > 500000],
   {
-    [TYPE='cemetery']      { polygon-fill: @cemetery; }
-    [TYPE='college']       { polygon-fill: @school; }
-    [TYPE='commercial']    { polygon-fill: @industrial; }
-    [TYPE='common']        { polygon-fill: @park; }
-    [TYPE='forest']        { polygon-fill: @wooded; }
-    [TYPE='golf_course']   { polygon-fill: @sports; }
-    [TYPE='grass']         { polygon-fill: @grass; }
-    [TYPE='hospital']      { polygon-fill: @hospital; }
-    [TYPE='industrial']    { polygon-fill: @industrial; }
-    [TYPE='park']          { polygon-fill: @park; }
-    [TYPE='parking']       { polygon-fill: @parking; }
-    [TYPE='pedestrian']    { polygon-fill: @pedestrian_fill; }
-    [TYPE='pitch']         { polygon-fill: @sports; }
-    [TYPE='residential']   { polygon-fill: @residential; }
-    [TYPE='school']        { polygon-fill: @school; }
-    [TYPE='sports_center'] { polygon-fill: @sports; }
-    [TYPE='stadium']       { polygon-fill: @sports; }
-    [TYPE='university']    { polygon-fill: @school; }
-    [TYPE='wood']          { polygon-fill: @wooded; }
-    [TYPE='nature_reserve'] 
+    [type='cemetery']      { polygon-fill: @cemetery; }
+    [type='college']       { polygon-fill: @school; }
+    [type='commercial']    { polygon-fill: @industrial; }
+    [type='common']        { polygon-fill: @park; }
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='golf_course']   { polygon-fill: @sports; }
+    [type='grass']         { polygon-fill: @grass; }
+    [type='hospital']      { polygon-fill: @hospital; }
+    [type='industrial']    { polygon-fill: @industrial; }
+    [type='park']          { polygon-fill: @park; }
+    [type='parking']       { polygon-fill: @parking; }
+    [type='pedestrian']    { polygon-fill: @pedestrian_fill; }
+    [type='pitch']         { polygon-fill: @sports; }
+    [type='residential']   { polygon-fill: @residential; }
+    [type='school']        { polygon-fill: @school; }
+    [type='sports_center'] { polygon-fill: @sports; }
+    [type='stadium']       { polygon-fill: @sports; }
+    [type='university']    { polygon-fill: @school; }
+    [type='wood']          { polygon-fill: @wooded; 
+    						 polygon-opacity: 0.3}
+    [type='nature_reserve'] 
       { polygon-fill: darken(@wooded,25%);
-        polygon-opacity: 0.5;
+        polygon-opacity: 0.3;
+        marker-file: url(park2-24.svg);
       }
+    [type='water'],[type='reservoir'] 
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }      	   
   }
 }
 
-#landusemed
+#landusesimpl1
 {
-  [zoom>=8][zoom<10][AREA > 10000000]
+  [zoom>=8][zoom<12][area > 10000]
   {
-    [TYPE='cemetery']      { polygon-fill: @cemetery; }
-    [TYPE='college']       { polygon-fill: @school; }
-    [TYPE='commercial']    { polygon-fill: @industrial; }
-    [TYPE='common']        { polygon-fill: @park; }
-    [TYPE='forest']        { polygon-fill: @wooded; }
-    [TYPE='golf_course']   { polygon-fill: @sports; }
-    [TYPE='grass']         { polygon-fill: @grass; }
-    [TYPE='hospital']      { polygon-fill: @hospital; }
-    [TYPE='industrial']    { polygon-fill: @industrial; }
-    [TYPE='park']          { polygon-fill: @park; }
-    [TYPE='parking']       { polygon-fill: @parking; }
-    [TYPE='pedestrian']    { polygon-fill: @pedestrian_fill; }
-    [TYPE='pitch']         { polygon-fill: @sports; }
-    [TYPE='residential']   { polygon-fill: @residential; }
-    [TYPE='school']        { polygon-fill: @school; }
-    [TYPE='sports_center'] { polygon-fill: @sports; }
-    [TYPE='stadium']       { polygon-fill: @sports; }
-    [TYPE='university']    { polygon-fill: @school; }
-    [TYPE='wood']          { polygon-fill: @wooded; }
-    [TYPE='nature_reserve'] 
+    [type='cemetery']      { polygon-fill: @cemetery; }
+    [type='college']       { polygon-fill: @school; }
+    [type='commercial']    { polygon-fill: @industrial; }
+    [type='common']        { polygon-fill: @park; }
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='golf_course']   { polygon-fill: @sports; }
+    [type='grass']         { polygon-fill: @grass; }
+    [type='hospital']      { polygon-fill: @hospital; }
+    [type='industrial']    { polygon-fill: @industrial; }
+    [type='park']          { polygon-fill: @park; }
+    [type='parking']       { polygon-fill: @parking; }
+    [type='pedestrian']    { polygon-fill: @pedestrian_fill; }
+    [type='pitch']         { polygon-fill: @sports; }
+    [type='residential']   { polygon-fill: @residential; }
+    [type='school']        { polygon-fill: @school; }
+    [type='sports_center'] { polygon-fill: @sports; }
+    [type='stadium']       { polygon-fill: @sports; }
+    [type='university']    { polygon-fill: @school; }
+    [type='wood']          { polygon-fill: @wooded; 
+    						 polygon-opacity: 0.3}
+    [type='nature_reserve'] 
       { polygon-fill: darken(@wooded,25%);
-        polygon-opacity: 0.5;
+        polygon-opacity: 0.3;
       }
-  }
-}
-
-#landusehigh
-{
-  [zoom>=10][zoom<12][AREA > 1000000]
-  {
-    [TYPE='cemetery']      { polygon-fill: @cemetery; }
-    [TYPE='college']       { polygon-fill: @school; }
-    [TYPE='commercial']    { polygon-fill: @industrial; }
-    [TYPE='common']        { polygon-fill: @park; }
-    [TYPE='forest']        { polygon-fill: @wooded; }
-    [TYPE='golf_course']   { polygon-fill: @sports; }
-    [TYPE='grass']         { polygon-fill: @grass; }
-    [TYPE='hospital']      { polygon-fill: @hospital; }
-    [TYPE='industrial']    { polygon-fill: @industrial; }
-    [TYPE='park']          { polygon-fill: @park; }
-    [TYPE='parking']       { polygon-fill: @parking; }
-    [TYPE='pedestrian']    { polygon-fill: @pedestrian_fill; }
-    [TYPE='pitch']         { polygon-fill: @sports; }
-    [TYPE='residential']   { polygon-fill: @residential; }
-    [TYPE='school']        { polygon-fill: @school; }
-    [TYPE='sports_center'] { polygon-fill: @sports; }
-    [TYPE='stadium']       { polygon-fill: @sports; }
-    [TYPE='university']    { polygon-fill: @school; }
-    [TYPE='wood']          { polygon-fill: @wooded; }
-    [TYPE='nature_reserve'] 
-      { polygon-fill: darken(@wooded,25%);
-        polygon-opacity: 0.5;
-      }
+    [type='water'],[type='reservoir']    
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }
   }
 }
 
 #landuse
 {
-  [zoom>=12]
+  [zoom>=12][zoom<14][area > 1000]
   {
-    [TYPE='cemetery']      { polygon-fill: @cemetery; }
-    [TYPE='college']       { polygon-fill: @school; }
-    [TYPE='commercial']    { polygon-fill: @industrial; }
-    [TYPE='common']        { polygon-fill: @park; }
-    [TYPE='forest']        { polygon-fill: @wooded; }
-    [TYPE='golf_course']   { polygon-fill: @sports; }
-    [TYPE='grass']         { polygon-fill: @grass; }
-    [TYPE='hospital']      { polygon-fill: @hospital; }
-    [TYPE='industrial']    { polygon-fill: @industrial; }
-    [TYPE='park']          { polygon-fill: @park; }
-    [TYPE='parking']       { polygon-fill: @parking; }
-    [TYPE='pedestrian']    { polygon-fill: @pedestrian_fill; }
-    [TYPE='pitch']         { polygon-fill: @sports; }
-    [TYPE='residential']   { polygon-fill: @residential; }
-    [TYPE='school']        { polygon-fill: @school; }
-    [TYPE='sports_center'] { polygon-fill: @sports; }
-    [TYPE='stadium']       { polygon-fill: @sports; }
-    [TYPE='university']    { polygon-fill: @school; }
-    [TYPE='wood']          { polygon-fill: @wooded; }
-    [TYPE='nature_reserve'] 
+    [type='cemetery']      { polygon-fill: @cemetery; }
+    [type='college']       { polygon-fill: @school; }
+    [type='commercial']    { polygon-fill: @industrial; }
+    [type='common']        { polygon-fill: @park; }
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='golf_course']   { polygon-fill: @sports; }
+    [type='grass']         { polygon-fill: @grass; }
+    [type='hospital']      { polygon-fill: @hospital; }
+    [type='industrial']    { polygon-fill: @industrial; }
+    [type='park']          { polygon-fill: @park; }
+    [type='parking']       { polygon-fill: @parking; }
+    [type='pedestrian']    { polygon-fill: @pedestrian_fill; }
+    [type='pitch']         { polygon-fill: @sports; }
+    [type='residential']   { polygon-fill: @residential; }
+    [type='school']        { polygon-fill: @school; }
+    [type='sports_center'],[type='stadium'] { polygon-fill: @sports; }
+    [type='stadium']       { polygon-fill: @sports; }
+    [type='university']    { polygon-fill: @school; }
+    [type='wood']          { polygon-fill: @wooded; 
+    						 polygon-opacity: 0.3}
+    [type='nature_reserve'] 
       { polygon-fill: darken(@wooded,25%);
-        polygon-opacity: 0.5;
+        polygon-opacity: 0.3;
       }
+    [type='water'],[type='reservoir']   
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }
   }
+}
+// military, retail not filled in 
+
+#landuse
+{
+  [zoom>=14]
+  {
+    [type='cemetery']      { polygon-fill: @cemetery;}
+    [type='college']       { polygon-fill: @school; }
+    [type='commercial']    { polygon-fill: @industrial; }
+    [type='common']        { polygon-fill: @park; }
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='golf_course']   { polygon-fill: @sports; }
+    [type='grass']         { polygon-fill: @grass; }
+    [type='hospital']      { polygon-fill: @hospital; }
+    [type='industrial']    { polygon-fill: @industrial; }
+    [type='park']          { polygon-fill: @park; }
+    [type='parking']       { polygon-fill: @parking; }
+    [type='pedestrian']    { polygon-fill: @pedestrian_fill; }
+    [type='pitch']         { polygon-fill: @sports; }
+    [type='residential']   { polygon-fill: @residential; }
+    [type='school']        { polygon-fill: @school; }
+    [type='sports_center'] { polygon-fill: @sports; }
+    [type='stadium']       { polygon-fill: @sports; }
+    [type='university']    { polygon-fill: @school; }
+    [type='wood']          { polygon-fill: @wooded; 
+    						 polygon-opacity: 0.3}
+    [type='nature_reserve'] 
+      { polygon-fill: darken(@wooded,25%);
+        polygon-opacity: 0.3;
+        //marker-file: url(park2-12.svg);
+      }
+    [type='water'],[type='reservoir']	   
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }
+  }
+}
+
+#naturalsimpl2 [zoom>=6][zoom<10][area > 500000]
+{
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='park']          { polygon-fill: @park; }
+    [type='water'],[type='riverbank']	   
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }
+}
+
+#naturalsimpl1 [zoom>=10][zoom<12][area > 100000]
+{
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='park']          { polygon-fill: @park; }
+    [type='water'],[type='riverbank']
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }
+}
+
+#natural [zoom>=12][zoom<14][area > 1000]
+{
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='park']          { polygon-fill: @park; }
+    [type='water'],[type='riverbank']	   
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }
+}
+ 
+#natural [zoom>=14] 
+{
+    [type='forest']        { polygon-fill: @wooded; }
+    [type='park']          { polygon-fill: @park; }
+    [type='water'],[type='riverbank']   
+    { 
+      polygon-fill: @water; 
+ 	   ::outline {
+    	line-color: darken(@water,25%);
+    	line-width: 1.0;
+    	line-join: round;
+      	}
+    }
 }
 
 // ---- BUILDINGS ----
 
 #buildings
 {
-  [zoom>=12][AREA>30000],
-    [zoom>=14][AREA<=30000]
+  [zoom>=16][area>10],
+    [zoom>=18][area<=10]
   {
 	  polygon-fill:@building;
+      ::outline {
+      line-color: darken(@building,65%);
+      line-width: 1.0;
+      line-join: round;
+    }
   }
 }
 
-// ==================================================================
-// WATER AREAS
-// ==================================================================
-
-#waterlow
-{
-  [zoom>=6][zoom<8][AREA > 1000000000]
+//building icons
+#buildings {
+    [zoom>=17][area>10],
+    [zoom>=18][area<=10] 
     {
-    polygon-fill: @water;
+    [type='church'], [type='chapel'] {
+    marker-file: url(religious-christian-24.svg); 
+    [zoom>=18] {marker-file: url(religious-christian-24.svg);
+        }
     }
+    [type='university'] {
+    marker-file: url(college-24.svg);
+    [zoom>=18] {marker-file: url(college-24.svg);
+        }
+    }
+    [type='school'] {
+    marker-file: url(school-24.svg); 
+    }
+    [type='public'] {
+    marker-file: url(town-hall-24.svg);
+    [zoom>=18] {marker-file: url(town-hall-24.svg);
+        }
+    }  
+  }  
 }
 
-#watermed
-{
-  [zoom>=8][zoom<10][AREA > 10000000]
-    {
-    polygon-fill: @water;
-    }
-}
 
-#water
-{
-  [zoom>=10]
-    {
-    polygon-fill: @water;
-    }
-}
+//pitch-18.svg, rail-18.svg
+//rail-above-24.svg, rail-light-18.svg, rail-metro-18.svg, religious-christian-18.svg
+//zoo-18.svg
 
+#points [zoom>=17] {
+  [type='hospital'] {
+  marker-file: url(hospital-24.svg);
+  marker-fill: red;
+	}
+  [type='bus_stop'] {
+  marker-file: url(bus-24.svg);
+	}
+  [type='emergency_telephone'] {
+  marker-file: url(telephone-24.svg);
+	}
+  [type='fuel'] {
+  marker-file: url(fuel-24.svg);
+	}
+  [type='parking'] {
+  marker-file: url(parking-24.svg);
+	}
+  [type='park'] {
+  marker-file: url(park2-24.svg);
+  	}
+}
+//consider adding icons for other types of buildings ‘yes’, 
+//hangar, apartments, house, 
 
 // ==================================================================
 // WATER WAYS
 // ==================================================================
 
-#waterwaylow[zoom>=8],
-#waterwayhigh[zoom>=12]{
+#waterwayssimpl1[zoom>=10][zoom<14] {
   line-color: @water;
-  line-width: 1.0;
+  line-width: 1.2;
+  }
+#waterways[zoom>=14]{
+  line-color: @water;
+  line-width: 2.0;
+  ::case {
+    line-color: darken(@water,25%);
+    line-width: 0.3;
+    line-join: round;
+      }
 }
-
-
-// ==================================================================
-// ADMINISTRATIVE BOUNDARIES
-// ==================================================================
-
-#admin_line[ADMIN_LEVE="2"][zoom<4] {
-  line-color:@admin_2;
-  line-width:2;
-}
-#place[TYPE="country"][zoom<4]
-{
-  text-name:'[NAME]';
-  text-face-name:@sans_bold;
-  text-placement:point;
-  text-fill:@country_text;
-  text-halo-fill: @country_halo;
-  text-halo-radius: 1;
-  text-size:24;
-  text-wrap-width: 40;
-}
-
-#adminline[ADMIN_LEVE="3"][zoom>=4][zoom<6] {
-  line-color:@admin_2;
-  line-width:2;
-} 
-#place[TYPE="state"][zoom>=4][zoom<7]
-{
-  text-name:'[NAME]';
-  text-face-name:@sans_bold;
-  text-placement:point;
-  text-fill:@country_text;
-  text-halo-fill: @country_halo;
-  text-halo-radius: 1;
-  text-size:12;
-  text-wrap-width: 40;
-}
-
-#admin_line[ADMIN_LEVE="4"][zoom>=6][zoom<8] {
-  line-color:@admin_2;
-  line-width:2;
-} 
-#place[TYPE="city"][zoom>=7]
-{
-  text-name:'[NAME]';
-  text-face-name:@sans_bold;
-  text-placement:point;
-  text-fill:@country_text;
-  text-halo-fill: @country_halo;
-  text-halo-radius: 1;
-  text-size:12;
-  text-wrap-width: 40;
-}
-
-#admin_line[ADMIN_LEVE="5"][zoom>=8][zoom<11] {
-  line-color:@admin_2;
-  line-width:2;
-} 
-#place[TYPE="town"][zoom>=10]
-{
-  text-name:'[NAME]';
-  text-face-name:@sans_bold;
-  text-placement:point;
-  text-fill:@country_text;
-  text-halo-fill: @country_halo;
-  text-halo-radius: 1;
-  text-size:12;
-  text-wrap-width: 40;
-}
-
-#place[TYPE="village"][zoom>=11]
-{
-  text-name:'[NAME]';
-  text-face-name:@sans_bold;
-  text-placement:point;
-  text-fill:@country_text;
-  text-halo-fill: @country_halo;
-  text-halo-radius: 1;
-  text-size:12;
-  text-wrap-width: 40;
-}
-
 
 
 // ==================================================================
@@ -411,458 +473,489 @@ Map {
 // At lower zoomlevels, just show major automobile routes: motorways and trunks.
 
 
-#roadslow[zoom>=6] 
-{
-  [TYPE='motorway'] { line-color: @motorway_line; line-width: 1.0 }
-  [TYPE='trunk'] { line-color: @trunk_line; line-width: 1.0 }
+#roadssimpl2[zoom>=9][zoom<11] {
+  [type='motorway'] { line-color: @motorway_line; line-width: 1.0 }
+  [type='trunk'] { line-color: @trunk_line; line-width: 1.0 }
 }
 
 // At mid-level scales start to show primary and secondary routes as well.
 
-#roadsmed[zoom>=9] 
+#roadssimpl1[zoom>=11][zoom<17]
 {
-//  [type='motorway'],
-  [TYPE='motorway_link'] {
+  [type='motorway'] {
+   line-color: @motorway_line;
+  }
+  [type='motorway_link'] {
     line-color: @motorway_line;
   }
-//  [type='trunk'],
-  [TYPE='trunk_link'] {
+  [type='trunk'] {
     line-color: @trunk_line;
   }
-  [TYPE='primary'] { line-color: @primary_line; line-width: 3; }
-  [TYPE='secondary'] { line-color: @secondary_line; line-width: 2}
-  [TYPE='tertiary'] { line-color: @standard_line; line-width: 1 }
+  [type='trunk_link'] {
+    line-color: @trunk_line;
+  }
+  [type='primary'] { line-color: @primary_line; line-width: 2.5; }
+  [type='secondary'] { line-color: @secondary_line; line-width: 2}
+  [type='tertiary'] { line-color: @standard_line; line-width: 1 }
 }
 
-#roadshigh[zoom>=13]
+#roadssimpl1[zoom>=14][zoom<17]
 {
-  [TYPE="residential"],
-    [TYPE="unclassified"],
-    [TYPE="service"],
-    [TYPE="secondary_link"],
-    [TYPE="tertiary_link"],
-    [TYPE="living_street"]
+  [type='primary'] { line-color: @primary_line; line-width: 2.5; }
+//  [type='secondary'] { line-color: @secondary_line; line-width: 2}
+//  [type='tertiary'] { line-color: @standard_line; line-width: 1 }
+}
+
+#roadssimpl1[zoom>=15][zoom<17]
+{
+  [type='secondary'] { line-color: @secondary_line; line-width: 2}
+//  [type='tertiary'] { line-color: @standard_line; line-width: 1 }
+}
+
+#roads[zoom>=17]
+{
+  [type='motorway'] {
+   line-color: @motorway_line;
+  }
+  [type='motorway_link'] {
+    line-color: @motorway_line;
+  }
+  [type='trunk'] {
+    line-color: @trunk_line;
+  }
+  [type='trunk_link'] {
+    line-color: @trunk_line;
+  }
+  [type='primary'] { line-color: @primary_line; line-width: 2.5; }
+  [type='secondary'] { line-color: @secondary_line; line-width: 2}
+  [type='tertiary'] { line-color: @standard_line; line-width: 1 }
+  [type="residential"],
+    [type="unclassified"],
+    [type="service"],
+    [type="secondary_link"],
+    [type="tertiary_link"],
+    [type="living_street"]
     {
     line-color: @standard_line; line-width: 1;
     }
 }
 
-#roadshigh[zoom>14]
+#roads[zoom>=18]
 {
-    [TYPE="cycleway"],
-    [TYPE="footway"],
-    [TYPE="unsurfaced"],
-    [TYPE="track"]    
+    [type="cycleway"],
+    [type="footway"],
+    [type="unsurfaced"],
+    [type="track"]    
     {
     	line-color: @standard_line; line-width: 1;
     }
 }
 
-#roadshigh[zoom>10]
+#railwayssimpl1[zoom>10][zoom<12]
 {
-  [RAILWAY="rail"],
-    {
-    	line-color: @rail_line; line-width: 2;
-    }
+  [type="rail"] {
+    	line-color: @rail_line; 
+    	line-width: 1; 
+  }
 }
 
-#roadshigh[zoom>12]
+#railways[zoom>=12]
 {
-    [RAILWAY="subway"],
-    [RAILWAY="tram"],
-    [RAILWAY="preserved"],
-    [RAILWAY="narrow_guage"],
-    [RAILWAY="light_rail"]
-    {
-    	line-color: @rail_line; line-width: 2;
+    [type="rail"] {
+    	line-color: @rail_line; 
+    	line-width: 1; 
     }
+    [type="subway"],
+    [type="tram"],
+    [type="preserved"],
+    [type="narrow_guage"],
+    [type="light_rail"]
+    [zoom > 12] {
+    	line-color: @rail_line; line-width: 2;}
 }
-
-// At higher levels the roads become more complex. We're now showing 
-// more than just automobile routes - railways, footways, and cycleways
-// come in as well.
-
-// Road width variables that are used in road & bridge styles
-@rdz11_maj: 1.6; @rdz11_med: 0.8; @rdz11_min: 0.4;
-@rdz12_maj: 2.5; @rdz12_med: 1.2; @rdz12_min: 0.8;
-@rdz13_maj: 3;   @rdz13_med: 1.5; @rdz13_min: 1;
-@rdz14_maj: 4;   @rdz14_med: 2.5; @rdz14_min: 1.6;
-@rdz15_maj: 6;   @rdz15_med: 4;   @rdz15_min: 2;
-@rdz16_maj: 8;   @rdz16_med: 6;   @rdz16_min: 4;
-@rdz17_maj: 14;  @rdz17_med: 12;  @rdz17_min: 10;
-@rdz18_maj: 20;  @rdz18_med: 17;  @rdz18_min: 14;
-
-// ---- Casing -----------------------------------------------
 
 // ================================================================== */
 // AEROWAYS
 // ================================================================== */
 
-#aeroway[zoom>9] {
-  [TYPE='runway'] {
+//**May want to add icons for airports**
+#aeroway[zoom>10] {
+    [TYPE='runway'] { 
     line-width: 3;
-  line-color:@aeroway;
-  }
-  
-  [zoom>12][TYPE='taxiway'] {
+  	line-color:@aeroway;
+    }
+    [zoom>12][TYPE='taxiway'] {
     line-width: 2;
   line-color:@aeroway;
   }
 }
 
-/* LABELS.MSS CONTENTS:
- * - place names
- * - area labels
- * - waterway labels 
- */
-
-/* Font sets are defined in palette.mss */
-
-/* Mapnik does not yet support character-spacing adjustments for 
-   labels placed along a line. We can fake this using the replace()
-   function in the text-name parameter by replacing each character
-   with itself followed by one or more spaces. */
+#aeroway [zoom > 10] {
+    marker-file: url(airport-24.svg); 
+}
 
 /* ================================================================== */
 /* PLACE NAMES
 /* ================================================================== */
 
+#places [zoom>12] {
+    text-name:'[name]';
+    text-placement: point;
+    text-face-name:@sans_lt;
+  	text-halo-fill: fadeout(white, 30%);
+  	text-halo-radius: @text_halo;
+   } 
 
-/*
-#place::country[type='country'][zoom>3][zoom<9] {
+// ==================================================================
+// ADMINISTRATIVE BOUNDARIES & LABELS
+// ==================================================================
+
+//National Border
+
+#adminline2 [zoom>=4] {
+  [ADMIN_LEVE="2"] {
+  line-color:@admin_2;
+  line-width:0.5;
+  line-join: round;
+    }
+}
+
+//Country Label
+
+#places [zoom<=4] {
+  [type="country"]{
   text-name:'[name]';
   text-face-name:@sans_bold;
   text-placement:point;
   text-fill:@country_text;
   text-halo-fill: @country_halo;
-  text-halo-radius: 1;
-  [zoom=3] {
-    text-size:10 + @text_adjust;
-    text-wrap-width: 40;
-  }
-  [zoom=4] {
-    text-size:11 + @text_adjust;
-    text-wrap-width: 50;
-  }
-  [zoom>4] {
-    text-halo-radius: 2;
-  }
-  [zoom=5] {
-    text-size:11 + @text_adjust;
-    text-wrap-width: 50;
-    text-line-spacing: 1;
-  }
-  [zoom=6] {
-    text-size:12 + @text_adjust;
-    text-character-spacing: 1;
-    text-wrap-width: 80;
-    text-line-spacing: 2;
-  }
-  [zoom=7] {
-    text-size:14 + @text_adjust;
-    text-character-spacing: 2;
-  }
+  text-halo-radius: @text_halo;
+  text-size:24;
+  text-wrap-width: 40;
+	}
 }
 
-#place::state[type='state'][zoom>=5][zoom<=10] {
+//Regions
+
+#adminline [zoom>=5][zoom<9] {
+  [ADMIN_LEVE="3"] {
+  line-color:@admin_2;
+  line-width:0.5;
+  line-join: round;
+   } 
+} 
+
+//States
+
+#adminline [zoom>=5][zoom<9] {
+  [ADMIN_LEVE="4"] {
+  line-color:@admin_2;
+  line-width:0.5;
+  line-join: round;
+    }
+} 
+
+//State names for zoom level 5
+
+#places[type="state"][zoom>=5][zoom<9]
+{
   text-name:'[name]';
-  text-face-name:@sans_bold_italic;
+  text-face-name:@sans;
   text-placement:point;
   text-fill:@state_text;
   text-halo-fill: @state_halo;
-  text-halo-radius: 1;
-  [zoom=6] {
-    text-size:10 + @text_adjust;
-    text-wrap-width: 40;
-  }
-  [zoom=7] {
-    text-size:11 + @text_adjust;
-    text-wrap-width: 50;
-  }
-  [zoom>8] {
-    text-halo-radius: 2;
-  }
-  [zoom=8] {
-    text-size:11 + @text_adjust;
-    text-wrap-width: 50;
-    text-line-spacing: 1;
-  }
-  [zoom=9] {
-    text-size:12 + @text_adjust;
-    text-character-spacing: 1;
-    text-wrap-width: 80;
-    text-line-spacing: 2;
-  }
-  [zoom=10] {
-    text-size:14 + @text_adjust;
-    text-character-spacing: 2;
-  }
+  text-halo-radius: @text_halo;
+  text-size:12;
+  text-align:center;
+  [name="Rondônia"] {
+  text-dx:-0.6px;}
+  [name="Santa Catarina"] {
+  text-dy:-0.5px;}
+  [name="Goiás"] {
+  text-dy:18px;}
 }
+
+#places[type="state"][zoom>=5][zoom<9]
+{
+  text-name:'[name]';
+  text-face-name:@sans;
+  text-placement:point;
+  text-fill:@state_text;
+  text-halo-fill: @state_halo;
+  text-halo-radius: @text_halo;
+  text-size:15;
+  text-align:center;
+  [name="Amapá"] {
+  text-dy:10px;}
+  [name="Pará"] {
+  text-dy:18px;}
+}
+
+/*metropolitan areas look crowded
+#adminline[ADMIN_LEVE="6"][zoom>=6][zoom<11] {
+  line-color:@admin_2;
+  line-width:6;
+}
+//admin level 4 is meso regions, 5 is metropolitan areas, 6 is micro-regions
+//7 is municipalities, 8 is districts, 9 is suburbs and neighborhoods
+//info not needed for current map purpose
+//place info includes names,population,admin-leve
 */
 
-/* ---- Cities ------------------------------------------------------ */
-
-#place::city[TYPE='city'][zoom>=8][zoom<=15] {
-  text-name:'[NAME]';
-  text-face-name:@sans;
+#places [zoom>=9]
+{
+  [type="city"] {
+  text-name:'[name]';
+  text-face-name:@sans_bold;
   text-placement:point;
   text-fill:@city_text;
-  text-halo-fill:@city_halo;
-  text-halo-radius:2;
-  [zoom<=8] {
-    text-size: 10;
-    text-halo-radius:1;
+  text-halo-fill: @city_halo;
+  text-halo-radius: @text_halo;
+  text-size:12;
   }
-  [zoom=9] {
-    text-size:10;
-    text-wrap-width: 60;
-  }
-  [zoom=10] {
-    text-size:11;
-    text-wrap-width: 70;
-  }
-  [zoom=11] {
+}
+
+
+#places [zoom>=6] [zoom < 11] [type="city"] { 
+  ['name'="São Paulo"] {
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
     text-size:12;
-    text-character-spacing: 1;
-    text-wrap-width: 80;
-  }
-  [zoom=12] {
-    text-size:13;
-    text-character-spacing: 1;
-    text-wrap-width: 100;
-  }
-  [zoom=13] {
-    text-size:14;
-    text-character-spacing: 2;
-    text-wrap-width: 200;
-    text-transform: uppercase;
-  }
-  [zoom=14] {
-    text-size:15;
-    text-character-spacing: 4;
-    text-wrap-width: 300;
-    text-transform: uppercase;
-  }
-  [zoom=15] {
-    text-size:16;
-    text-character-spacing: 6;
-    text-wrap-width: 400;
-    text-transform: uppercase;
-  }
-}
-
-/* ---- Towns ------------------------------------------------------- */
-
-#place::town[TYPE='town'][zoom>=9][zoom<=17] {
-  text-name:'[NAME]';
-  text-face-name:@sans;
-  text-placement:point;
-  text-fill:@town_text;
-  text-size:9;
-  text-halo-fill:@town_halo;
-  text-halo-radius:1;
-  text-wrap-width: 50;
-  [zoom>=10] {
-    text-halo-radius:2;
-    text-size: 10;
-  }
-  [zoom>=11]{ text-size:11; }
-  [zoom>=12]{
+    text-dx:7px;}
+  ['name'="Rio de Janeiro"] {
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
     text-size:12;
-    text-line-spacing: 1;
-  }
-  [zoom>=13]{
-    text-transform: uppercase;
-    text-character-spacing: 1;
-    text-line-spacing: 2;
-  }
-  [zoom>=14]{
-    text-size:13;
-    text-character-spacing: 2;
-    text-line-spacing: 3;
-  }
-  [zoom>=15]{
-    text-size:14;
-    text-character-spacing: 3;
-    text-line-spacing: 4;
-  }
-  [zoom>=15]{
-    text-size:15;
-    text-character-spacing: 4;
-    text-line-spacing: 5;
-  }
-  [zoom>=17]{
-    text-size:16;
-    text-character-spacing: 5;
-    text-line-spacing: 6;
-  }
-}
-
-/* ---- Other small places ------------------------------------------ */
-
-#place::small[TYPE='village'][zoom>=13],
-#place::small[TYPE='suburb'][zoom>=13],
-#place::small[TYPE='hamlet'][zoom>=13],
-#place::small[TYPE='neighbourhood'][zoom>=13] {
-  text-name:'[NAME]';
-  text-face-name:@sans;
-  text-placement:point;
-  text-fill:@other_text;
-  text-size:10;
-  text-halo-fill:@other_halo;
-  text-halo-radius:1;
-  text-wrap-width: 30;
-  [zoom>=14] {
-    text-size:11;
-    text-character-spacing: 1;
-    text-wrap-width: 40;
-    text-line-spacing: 1;
-  }
-  [zoom>=15] {
-    text-halo-radius: 2;
-    text-transform: uppercase;
-    text-character-spacing: 1;
-    text-wrap-width: 60; 
-    text-line-spacing: 1;
-  }
-  [zoom>=16] {
+    text-dx:7px;}
+  ['name'="Salvador"]{
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
     text-size:12;
-    text-character-spacing: 2;
-    text-wrap-width: 120;
-    text-line-spacing: 2;
-  } 
-  [zoom>=17] {
-    text-size:13; 
-    text-character-spacing: 3;
-    text-wrap-width: 160;
-    text-line-spacing: 4;
-  }
-  [zoom>=18] {
-    text-size:14;
-    text-character-spacing: 4;
-    text-line-spacing: 6;
-  }
-}
-
-#place::small[TYPE='locality'][zoom>=15] {
-  text-name:'[NAME]';
-  text-face-name:@sans;
-  text-placement:point;
-  text-fill:@locality_text;
-  text-size:9;
-  text-halo-fill:@locality_halo;
-  text-halo-radius:1;
-  text-wrap-width: 30;
-  [zoom>=16] {
-    text-size:10;
-    text-wrap-width: 60;
-    text-line-spacing: 1;
-  }
-  [zoom>=17] {
-    text-size:11;
-    text-wrap-width: 120;
-    text-line-spacing: 2;
-  }
-  [zoom>=18] {
+    text-dx:7px;}
+   ['name'="Fortaleza"]{
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
     text-size:12;
-    text-character-spacing: 1;
-    text-line-spacing: 4;
-  }
+    text-dx:7px;}
+   ['name'="Belo Horizonte"]{
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
+    text-size:12;
+    text-dx:7px;}
+   ['name'="Curitiba"]{
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
+    text-size:12;
+    text-dx:7px;}
+   ['name'="Recife"]{
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
+    text-size:12;
+    text-dx:7px;}
+   ['name'="Porto Alegre"]{
+    marker-fill:#E65C5C;
+    marker-width:5px;
+  	marker-height:5px;
+    text-name:'[name]';
+    text-face-name:@sans_bold;
+    text-fill:@city_text;
+    text-halo-fill: @city_halo;
+    text-halo-radius: @text_halo;
+    text-size:12;
+    text-dx:7px;}
 }
 
-// =====================================================================
-// AREA LABELS
-// =====================================================================
-/*
-#area_label {
-  // Bring in labels gradually as one zooms in, bases on polygon area
-  [zoom>=10][area>102400000],
-  [zoom>=11][area>25600000],
-  [zoom>=13][area>1600000],
-  [zoom>=14][area>320000],
-  [zoom>=15][area>80000],
-  [zoom>=16][area>20000],
-  [zoom>=17][area>5000],
-  [zoom>=18][area>=0] {
-    text-name: "[name]";
-    text-halo-radius: 1.5;
-    text-face-name:@sans;
-    text-size: 11;
-    text-wrap-width:30;
-    text-fill: #888;
-    text-halo-fill: #fff;
-    // Specific style overrides for different types of areas:
-    [type='park'][zoom>=10] {
-      text-face-name: @sans_lt_italic;
-      text-fill: @park * 0.6;
-      text-halo-fill: lighten(@park, 10);
-    }
-    [type='golf_course'][zoom>=10] {
-      text-fill: @sports * 0.6;
-      text-halo-fill: lighten(@sports, 10);
-    }
-    [type='cemetery'][zoom>=10] {
-      text-fill: @cemetery * 0.6;
-      text-halo-fill: lighten(@cemetery, 10);
-    }
-    [type='hospital'][zoom>=10] {
-      text-fill: @hospital * 0.6;
-      text-halo-fill: lighten(@hospital, 10);
-    }
-    [type='college'][zoom>=10],
-    [type='school'][zoom>=10],
-    [type='university'][zoom>=10] {
-      text-fill: @school * 0.6;
-      text-halo-fill: lighten(@school, 10);
-    }
-    [type='water'][zoom>=10] {
-      text-fill: @water * 0.6;
-      text-halo-fill: lighten(@water, 10);
-    }
-  }
-  [zoom=15][area>1600000],
-  [zoom=16][area>80000],
-  [zoom=17][area>20000],
-  [zoom=18][area>5000] {
-    text-name: "[name]";
-    text-size: 13;
-    text-wrap-width: 60;
-    text-character-spacing: 1;
-    text-halo-radius: 2;
-  }
-  [zoom=16][area>1600000],
-  [zoom=17][area>80000],
-  [zoom=18][area>20000] {
-    text-size: 15;
-    text-character-spacing: 2;
-    text-wrap-width: 120;
-  }
-  [zoom>=17][area>1600000],
-  [zoom>=18][area>80000] {
-    text-size: 20;
-    text-character-spacing: 3;
-    text-wrap-width: 180;
-  }
+// ==================================================================
+// MISC LABELS FLOAT ON TOP
+// ==================================================================
+
+
+#waterways [zoom>=14]{
+  text-name:'[name]';
+  text-placement: line;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+  text-min-distance: 9px;
 }
-   
-#poi[type='university'][zoom>=15],
-#poi[type='hospital'][zoom>=16],
-#poi[type='school'][zoom>=17],
-#poi[type='library'][zoom>=17] {
-  text-name:"[name]";
-  text-face-name:@sans;
-  text-size:10;
-  text-wrap-width:30;
-  text-fill: @poi_text;
+
+#natural [zoom>=16]{
+    text-name:'[name]';
+    text-placement: point;
+	//marker-fill:black;
+    //marker-width:2px;
+  	//marker-height:2px;
+    [type='riverbank'] {
+      text-placement: line;
+   	}
+    text-face-name:@sans_lt;
+    text-halo-fill: fadeout(white, 30%);
+    text-halo-radius: @text_halo;
+ }
+
+#railways [zoom>=14]{
+    text-name:'[name]';
+    text-placement: line;
+    text-face-name:@sans_lt;
+    text-halo-fill: fadeout(white, 30%);
+    text-halo-radius: @text_halo;
+ }
+
+#roads [zoom>=16]{
+    text-name:'[name]';
+    text-placement: line;
+    text-face-name:@sans_lt;
+    text-halo-fill: fadeout(white, 30%);
+    text-halo-radius: @text_halo; 
+  	text-min-distance: 5;
+ }
+
+#buildings [zoom>=16] {
+  [type='railway_station'], [type='train_station'] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+    marker-file: url(rail-24.svg); 
+  }
+  [type='cathedral'] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+    marker-file: url(place-of-worship-24.svg); }
+  [type='police'] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+    marker-file: url(police-24.svg); }
+  [type='museum'] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+    marker-file: url(museum-24.svg); }
+  [type='ferry_terminal'] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+    marker-file: url(ferry-24.svg); }
+  [type='hospital'] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+    marker-file: url(hospital-24.svg); 
+  	marker-fill: red;}
+  [type='bus_station'] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+    marker-file: url(bus-24.svg); }
 }
-*/
 
-/* ================================================================== */
-/* WATERWAY LABELS
-/* ================================================================== */
-/*
-
-
-/* ================================================================== */
-/* ROAD LABELS
-/* ================================================================== */
+#buildings [zoom>=18] {
+  text-name:'[name]';
+  text-placement: point;
+  text-face-name:@sans_lt;
+  text-halo-fill: fadeout(white, 30%);
+  text-halo-radius: @text_halo;
+  [type='church'], [type='chapel'] {
+    marker-file: url(religious-christian-24.svg); }
+  [type='places_of_worship'] {
+    marker-file: url(place-of-worship-24.svg); }
+  [type='school'] {
+    marker-file: url(school-24.svg); }
+  [type='college'], [type='university'] {
+    marker-file: url(college-24.svg); }
+  [type='toilets'] {
+    marker-file: url(toilets-24.svg); }
+  [type='fuel'] {
+    marker-file: url(fuel-24.svg); }
+  [type='nightclub'] {
+    marker-file: url(bar-24.svg); }
+  [type='library'] {
+    marker-file: url(library-24.svg); }
+  [type='parking'] {
+    marker-file: url(parking-24.svg); }
+  //[type='apartments'] {
+  //  marker-file: url(); }
+  [type='public_building'], [type='public'] {
+    marker-file: url(town-hall-24.svg); }
+  [type='restaurant'] {
+    marker-file: url(restaurant-24.svg); }
+  [type='bicycle_parking'] {
+    marker-file: url(bicycle-24.svg); }
+  [type='hotel'] {
+    marker-file: url(lodging-24.svg); }
+  [type='commercial'] {
+    marker-file: url(commercial-24.svg); }
+  //[type='transportation'] {
+  //  marker-file: url(); }
+  [type='fast_food'] {
+    marker-file: url(fast-food-24.svg); }
+  [type='theatre'] {
+    marker-file: url(theatre-24.svg); }
+  [type='marketplace'], [type='supermarket'] {
+    marker-file: url(grocery-24.svg); }
+  //[type='attraction'] {
+  // marker-file: url(); }
+  [type='arts_centre'], [type='studio'] {
+    marker-file: url(art-gallery-24.svg); }
+  //[type='hangar'] {
+  //  marker-file: url(); }
+  //[type='station'] {
+  //  marker-file: url(); }
+}
